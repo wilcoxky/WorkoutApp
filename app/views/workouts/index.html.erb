@@ -1,0 +1,19 @@
+<h1>Workouts#index</h1>
+<p>Find me in app/views/workouts/index.html.erb</p>
+
+<table>
+ 	<tr>
+ 		<td>Title</td>
+ 		<td>Catergories</td>
+ 		<td>Excercise</td>
+ 		<td>User</td>
+ 	</tr>
+ 	<% @comments.each do |comment| %>
+ 	<tr>
+ 		<td><%= workout.title %></td>
+ 		<td><%= workout.catergory %></td>
+ 		<td><%= workout.excercise %></td>
+ 		 <td><%= workout.user.name %></td>
+ 	</tr>
+ 	<% end %>
+</table>

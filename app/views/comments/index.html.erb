@@ -1,0 +1,17 @@
+<h1>Comments#index</h1>
+<p>Find me in app/views/comments/index.html.erb</p>
+
+<table>
+ 	<tr>
+ 		<td>Workout</td>
+ 		<td>Comment</td>
+ 		<td>User</td>
+ 	</tr>
+ 	<% @comments.each do |comment| %>
+ 	<tr>
+ 		<td><%= comment.workout.title %></td>
+ 		<td><%= comment.body %></td>
+ 		<td><%= comment.user.id %></td>
+ 	</tr>
+ 	<% end %>
+</table>
