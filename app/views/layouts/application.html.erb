@@ -37,14 +37,14 @@
           <div class="nav navbar-right">
             <ul>
             <% if user_signed_in? %>
-            <button type="button" class="btn btn-default btn-sm">
+            <button type="button" class="btn btn-default btn-sm right-btn">
               <li><%= link_to("Logout", destroy_user_session_path, :method => :delete) %></li>
             </button >
            <% else %>
-           <button type="button" class="btn btn-warning btn-sm">
+           <button type="button" class="btn btn-warning btn-sm right-btn">
               <li><%= link_to("Sign Up", new_user_registration_path) %></li>
             </button>
-            <button type="button" class="btn btn-default btn-sm">
+            <button type="button" class="btn btn-default btn-sm right-btn">
               <li><%= link_to("Login", new_user_session_path) %></li>
             </button>
             <% end %>

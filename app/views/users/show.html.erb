@@ -1,0 +1,29 @@
+<h1>Users#show</h1>
+<p>Find me in app/views/users/show.html.erb</p>
+
+<div>
+	<p>User</p>
+	<p><%= @user.username %></p>
+	<p>Email</p>
+	<p><%= @user.email %></p>
+	<h2>followers</h2>
+	<h5><%= @user.follow_count %></h5>
+	 <% @user.all_following.each do |user| %>
+	<table class="table"> 
+	<tr>
+		<td>Email</td>
+		<td>Name</td>
+		<td>Following?</td>
+	</tr>	
+ 	<tr>
+ 		<td><%= user.email %></td>
+ 		<td><%= user.username %></td>
+ 		<td>
+ 	 	<button type="button" class="btn btn-default btn-sm">
+ 	 	<%= link_to "Unfollow", unfollow_user_path(user) %>	 	
+ 	 	</button >
+ 		</td>
+ 	</tr>
+ 	</table>
+ 	<% end %>
+</div>

@@ -17,6 +17,8 @@ end
 gem 'devise'
 gem 'simple_form'
 gem 'thumbs_up'
+gem 'acts_as_follower'
+
 
 
 # Use SCSS for stylesheets

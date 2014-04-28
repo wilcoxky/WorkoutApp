@@ -25,8 +25,12 @@
 	margin-top: 7px;
 }
 
-.navbar-right > li > .btn {
+/*.navbar-right > li > .btn {
 	margin: 7px !important;
+}*/
+
+.right-btn{
+  margin: 7px !important;
 }
 
 .btn-warning > li > a{
