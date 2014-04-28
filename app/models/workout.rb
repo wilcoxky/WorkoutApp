@@ -3,4 +3,5 @@ class Workout < ActiveRecord::Base
   has_many :comments, :dependent => :destroy
   validates :title, presence:true
   validates :excercise, length: { minimum: 10 }
+  acts_as_voteable
 end

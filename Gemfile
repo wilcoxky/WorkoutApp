@@ -15,8 +15,8 @@ end
 
 # My Own Files
 gem 'devise'
-gem "simple_hashtag"
-gem 'likeable'
+gem 'simple_form'
+gem 'thumbs_up'
 
 
 # Use SCSS for stylesheets

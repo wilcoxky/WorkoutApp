@@ -1,3 +1,13 @@
+<div id="fb-root"></div>
+<script>(function(d, s, id) {
+  var js, fjs = d.getElementsByTagName(s)[0];
+  if (d.getElementById(id)) return;
+  js = d.createElement(s); js.id = id;
+  js.src = "//connect.facebook.net/en_US/all.js#xfbml=1";
+  fjs.parentNode.insertBefore(js, fjs);
+}(document, 'script', 'facebook-jssdk'));</script>
+
+
 <h1>Workouts#show</h1>
 <p>Find me in app/views/workouts/show.html.erb</p>
 
@@ -9,5 +19,8 @@
 	<p>Excercise:</p>
 	<%= @workout.excercise%> </p>
 	<p>User</p>
-	<p><%= @workout.user.name %></p>
+	<p><%= @workout.user.email %></p>
+	<p>Remove</p>
+	<%= link_to 'Destroy Workout', method: :delete%>
+	<div class="fb-like" data-href="https://developers.facebook.com/docs/plugins/" data-layout="box_count" data-action="like" data-show-faces="true" data-share="true"></div>
 </div>

@@ -1,9 +1,12 @@
 WorkoutApp::Application.routes.draw do
+  get "misc/about"
+  get "misc/home"
   resources :comments
   resources :workouts 
   devise_for :users
   get "home/index"
   root 'home#index'
+  get 'misc/about'
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 

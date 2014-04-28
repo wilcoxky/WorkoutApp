@@ -1,11 +1,25 @@
+<div id="fb-root"></div>
+<script>(function(d, s, id) {
+  var js, fjs = d.getElementsByTagName(s)[0];
+  if (d.getElementById(id)) return;
+  js = d.createElement(s); js.id = id;
+  js.src = "//connect.facebook.net/en_US/all.js#xfbml=1";
+  fjs.parentNode.insertBefore(js, fjs);
+}(document, 'script', 'facebook-jssdk'));</script>
+
 <h1>Comments#show</h1>
 <p>Find me in app/views/comments/show.html.erb</p>
 
-<div>
+<div class= "container">
+	<div class="col-md-8"
 	<p>Response To: </p>
 	<p><%= @comment.workout.title %></p>
 	<p>Body</p>
 	<p><%= @comment.body %></p>
 	<p>User</p>
-	<p><%= @comment.user.name %></p>
+	<p><%= @comment.user.email %></p>
+	<p>Delete</p>
+	<%= link_to 'Destroy Comment', comment, method: :delete%>
+	</div>
+	<div class="fb-like" data-href="https://developers.facebook.com/docs/plugins/" data-layout="box_count" data-action="like" data-show-faces="true" data-share="true"></div>
 </div>

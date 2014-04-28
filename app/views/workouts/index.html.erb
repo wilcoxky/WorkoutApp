@@ -1,19 +1,24 @@
 <h1>Workouts#index</h1>
 <p>Find me in app/views/workouts/index.html.erb</p>
 
-<table>
+<table class="table">
  	<tr>
  		<td>Title</td>
  		<td>Catergories</td>
  		<td>Excercise</td>
  		<td>User</td>
+ 		<td>Delete</td>
+ 		<td>Likes</td>
  	</tr>
- 	<% @comments.each do |comment| %>
+ 	
+ 	<% @workouts.each do |workout| %>
  	<tr>
- 		<td><%= workout.title %></td>
- 		<td><%= workout.catergory %></td>
+ 		<td><%= link_to workout.title, workout_path(workout)%></td>
+ 		<td><%= workout.category %></td>
  		<td><%= workout.excercise %></td>
- 		 <td><%= workout.user.name %></td>
+ 		<td><%= workout.user.email %></td>
+ 		<td><%= link_to 'Destroy Workout', workout, method: :delete%></td>
+
  	</tr>
  	<% end %>
 </table>
