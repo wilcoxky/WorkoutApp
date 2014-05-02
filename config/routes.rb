@@ -2,12 +2,19 @@ WorkoutApp::Application.routes.draw do
   get "misc/about"
   get "misc/home"
   resources :comments
-  resources :workouts 
+  resources :workouts do
+    member do 
+      post :vote_up
+      post :vote_down
+      post :unvote
+    end
+  end
   devise_for :users
   resources :users do
     member do
       get :follow
       get :unfollow
+      get :vote_for
     end
   end
   get "home/index"

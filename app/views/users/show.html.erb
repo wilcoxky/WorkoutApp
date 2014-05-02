@@ -1,29 +1,74 @@
-<h1>Users#show</h1>
-<p>Find me in app/views/users/show.html.erb</p>
 
-<div>
-	<p>User</p>
-	<p><%= @user.username %></p>
-	<p>Email</p>
-	<p><%= @user.email %></p>
-	<h2>followers</h2>
-	<h5><%= @user.follow_count %></h5>
-	 <% @user.all_following.each do |user| %>
-	<table class="table"> 
-	<tr>
-		<td>Email</td>
-		<td>Name</td>
-		<td>Following?</td>
-	</tr>	
- 	<tr>
- 		<td><%= user.email %></td>
- 		<td><%= user.username %></td>
- 		<td>
- 	 	<button type="button" class="btn btn-default btn-sm">
- 	 	<%= link_to "Unfollow", unfollow_user_path(user) %>	 	
- 	 	</button >
- 		</td>
- 	</tr>
- 	</table>
- 	<% end %>
+<div class="container">
+	<div class="row">
+		<div class="col-md-offset-2 col-md-8 col-lg-offset-3 col-lg-6">
+    	 <div class="well profile">
+            <div class="col-sm-12">
+                <div class="col-xs-12 col-sm-8">
+                    <h2><%= @user.username %></h2>
+                    <p><strong>About: </strong><%= @user.about %></p>
+                    <p><strong>Email: </strong><%= @user.email %></p>
+                    <p><strong>Skills: </strong>
+                        <span class="tags">html5</span> 
+                        <span class="tags">css3</span>
+                        <span class="tags">jquery</span>
+                        <span class="tags">bootstrap3</span>
+                    </p>
+                </div>             
+                <div class="col-xs-12 col-sm-4 text-center">
+                    <figure>
+                        <img src="http://www.localcrimenews.com/wp-content/uploads/2013/07/default-user-icon-profile.png" alt="" class="img-circle img-responsive">
+                        <figcaption class="ratings">
+                            <p>Ratings
+                            <a href="#">
+                                <span class="fa fa-star"></span>
+                            </a>
+                            <a href="#">
+                                <span class="fa fa-star"></span>
+                            </a>
+                            <a href="#">
+                                <span class="fa fa-star"></span>
+                            </a>
+                            <a href="#">
+                                <span class="fa fa-star"></span>
+                            </a>
+                            <a href="#">
+                                 <span class="fa fa-star-o"></span>
+                            </a> 
+                            </p>
+                        </figcaption>
+                    </figure>
+                </div>
+            </div>            
+            <div class="col-xs-12 divider text-center">
+                <div class="col-xs-12 col-sm-4 emphasis">
+                    <h2><strong><%= @user.followers_count %></strong></h2>                    
+                    <p><small>Followers</small></p>
+                    <button class="btn btn-success btn-block"><span class="fa fa-plus-circle"></span><%= link_to "Follow", follow_user_path(@user) %></button>
+                </div>
+                <div class="col-xs-12 col-sm-4 emphasis">
+                    <h2><strong><%= @user.follow_count %></strong></h2>                    
+                    <p><small>Following</small></p>
+                    <button class="btn btn-info btn-block"><span class="fa fa-user"></span> View Profile </button>
+                </div>
+                <div class="col-xs-12 col-sm-4 emphasis">
+                    <h2><strong>43</strong></h2>                    
+                    <p><small>Snippets</small></p>
+                    <div class="btn-group dropup btn-block">
+                      <button type="button" class="btn btn-primary"><span class="fa fa-gear"></span> Options </button>
+                      <button type="button" class="btn btn-primary dropdown-toggle" data-toggle="dropdown">
+                        <span class="caret"></span>
+                        <span class="sr-only">Toggle Dropdown</span>
+                      </button>
+                      <ul class="dropdown-menu text-left" role="menu">
+                      	Add in JavaScript to follow or unfollow
+                        <li><a href="#" class="btn disabled" role="button"><%= link_to "Unfollow", unfollow_user_path(@user) %>	 	
+ 						</a></li>
+                      </ul>
+                    </div>
+                </div>
+            </div>
+    	 </div>                 
+		</div>
+	</div>
 </div>

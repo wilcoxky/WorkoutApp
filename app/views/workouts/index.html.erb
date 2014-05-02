@@ -18,7 +18,14 @@
  		<td><%= workout.excercise %></td>
  		<td><%= workout.user.email %></td>
  		<td><%= link_to 'Destroy Workout', workout, method: :delete%></td>
-
+ 		<td>
+ 			<p>likes</p> <%= "#{workout.votes_for}"%>
+ 			<% if !current_user.voted_on?(workout) %>
+ 			 <%= button_to "Like", vote_up_workout_path(workout), class: "btn btn-default btn-sm makeWhite"%>	 	
+ 			<% else %>
+ 			 <%= button_to "Unlike", unvote_workout_path(workout), class: "btn btn-default btn-sm makeWhite" %>
+ 			 <% end %>
+ 		</td>
  	</tr>
  	<% end %>
 </table>

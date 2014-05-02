@@ -1,3 +1,9 @@
+<style type="text/css">
+.makeWhite > a {
+	color: white;
+}
+</style>
+
 <h1>Users#index</h1>
 <p>Find me in app/views/users/index.html.erb</p>
 
@@ -17,11 +23,11 @@
  		<td><%= user.username %></td>
  		<td>
  	 <% if current_user.following?(user)%>
- 	 <button type="button" class="btn btn-danger btn-sm">
+ 	 <button type="button" class="btn btn-danger btn-sm makeWhite">
  	 <%= link_to "Unfollow", unfollow_user_path(user) %>	 	
  	 </button >
  	<% else %>
- 	 <button type="button" class="btn btn-success btn-sm">
+ 	 <button type="button" class="btn btn-success btn-sm makeWhite">
  	 	<%= link_to "Follow", follow_user_path(user) %>
  	 </button>
  	 <% end %>

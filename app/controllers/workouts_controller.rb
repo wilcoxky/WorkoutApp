@@ -52,21 +52,49 @@ class WorkoutsController < ApplicationController
    @comments = Comment.where(workout_id: @workout.id).order(created_at: :desc)
   end
 
- def vote_for_workout
-    begin
-      current_user.vote_for(@workout = Workout.find(params[:id]))
-      redirect_to workout_path(@workout.id) 
-    rescue ActiveRecord::RecordInvalid
-      redirect_to workout_path(@workout.id)  
-    end
-  end
+ # def vote_for_workout
+ #    begin
+ #      current_user.vote_for(@workout = Workout.find(params[:id]))
+ #      redirect_to workout_path(@workout.id) 
+ #    rescue ActiveRecord::RecordInvalid
+ #      redirect_to workout_path(@workout.id)  
+ #    end
+ #  end
   
-  def vote_against_workout
+ #  def vote_against_workout
+ #    begin
+ #      current_user.vote_against(@workout = Workout.find(params[:id]))
+ #      redirect_to workout_path(@workout.id) 
+ #    rescue ActiveRecord::RecordInvalid
+ #      redirect_to workout_path(@workout.id) 
+ #    end
+ #  end
+
+  def vote_up
+    @workout = Workout.find(params[:id])
     begin
-      current_user.vote_against(@workout = Workout.find(params[:id]))
-      redirect_to workout_path(@workout.id) 
+      current_user.vote_for(@workout)
     rescue ActiveRecord::RecordInvalid
-      redirect_to workout_path(@workout.id) 
     end
+    redirect_to workouts_path  
   end
+
+  def vote_down
+    @workout = Workout.find(params[:id])
+    begin
+      current_user.vote_against(@workout)
+    rescue ActiveRecord::RecordInvalid
+    end
+      redirect_to workouts_path
+  end
+
+    def unvote
+    @workout = Workout.find(params[:id])
+    begin
+      current_user.unvote_for(@workout)
+    rescue ActiveRecord::RecordInvalid
+    end
+      redirect_to workouts_path
+  end
+
 end
