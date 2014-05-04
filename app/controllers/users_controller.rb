@@ -4,6 +4,7 @@ class UsersController < ApplicationController
   end
 
   def new
+    #Handled BY devise
   end
 
   def edit
@@ -13,8 +14,20 @@ class UsersController < ApplicationController
   	@user = User.find(params[:id])
   end
 
+  def destroy
+    @user = User.find(params[:id])
+    @user.destroy
+    redirect_to users_path
+  end
+
   def dash
-  	@user = current_user
+    @following = current_user.following_users
+    @fid = []
+    @workouts = []
+    @following.each do |f|
+      @fid.push(f.id)
+    end
+    @workouts = Workout.where(user_id: @fid).order(created_at: :desc)
   end
 
   def follow

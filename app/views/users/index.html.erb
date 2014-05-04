@@ -4,22 +4,18 @@
 }
 </style>
 
-<h1>Users#index</h1>
-<p>Find me in app/views/users/index.html.erb</p>
+<h1>Fellow Trainers</h1>
 
 <table class="table">
  	<tr>
  		<td>Email</td>
  		<td>UserName</td>
  		<td>Following</td>
- 		<td>User</td>
- 		<td>Delete</td>
- 		<td>Likes</td>
  	</tr>
  	
  	<% @users.each do |user| %>
  	<tr>
- 		<td><%= user.email %></td>
+ 		<td><%= link_to user.email, user_path(user.id) %></td>
  		<td><%= user.username %></td>
  		<td>
  	 <% if current_user.following?(user)%>

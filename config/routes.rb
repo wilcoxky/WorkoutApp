@@ -17,6 +17,8 @@ WorkoutApp::Application.routes.draw do
       get :vote_for
     end
   end
+  get "dashboard", to: "users#dash"
+  get "workouts/by/:scope_param", to: "workouts#index_scoped", as: "scoped"
   get "home/index"
   root 'home#index'
   # The priority is based upon order of creation: first created -> highest priority.

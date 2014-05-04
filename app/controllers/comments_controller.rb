@@ -7,7 +7,7 @@ class CommentsController < ApplicationController
   	@comment = Comment.new(comment_params)
   	if @comment.save
       Notifications.new_comment(@comment).deliver
-  		redirect_to comments_path
+  		redirect_to workout_path(@comment.workout.id)
   	else
   		render "new"
   	end

@@ -2,9 +2,26 @@ class WorkoutsController < ApplicationController
   def index
     if user_signed_in?
   	 @workouts = Workout.all
+
     else
       @workouts = []
     end
+  end
+
+  def index_scoped
+    if params[:scope_param] == "top"
+      @workouts = Workout.top
+    end
+    if params[:scope_param] == "by_cat"
+      @workouts = Workout.by_cat
+    end
+    if params[:scope_param] == "by_newest"
+      @workouts = Workout.by_newest
+    end
+    if params[:scope_param] == "by_user"
+      @workouts = Workout.by_user
+    end
+    render 'index'
   end
 
   def create
@@ -49,25 +66,9 @@ class WorkoutsController < ApplicationController
   
   def show
    @workout = Workout.find(params[:id])
-   @comments = Comment.where(workout_id: @workout.id).order(created_at: :desc)
+   @comments = Comment.where(workout_id: @workout.id).order(created_at: :desc).limit(5)
   end
 
- # def vote_for_workout
- #    begin
- #      current_user.vote_for(@workout = Workout.find(params[:id]))
- #      redirect_to workout_path(@workout.id) 
- #    rescue ActiveRecord::RecordInvalid
- #      redirect_to workout_path(@workout.id)  
- #    end
- #  end
-  
- #  def vote_against_workout
- #    begin
- #      current_user.vote_against(@workout = Workout.find(params[:id]))
- #      redirect_to workout_path(@workout.id) 
- #    rescue ActiveRecord::RecordInvalid
- #      redirect_to workout_path(@workout.id) 
- #    end
  #  end
 
   def vote_up

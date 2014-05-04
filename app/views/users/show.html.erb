@@ -1,4 +1,8 @@
-
+<style type="text/css">
+.makeWhite > a{
+    color: white;
+}
+</style>
 <div class="container">
 	<div class="row">
 		<div class="col-md-offset-2 col-md-8 col-lg-offset-3 col-lg-6">
@@ -44,28 +48,31 @@
                 <div class="col-xs-12 col-sm-4 emphasis">
                     <h2><strong><%= @user.followers_count %></strong></h2>                    
                     <p><small>Followers</small></p>
-                    <button class="btn btn-success btn-block"><span class="fa fa-plus-circle"></span><%= link_to "Follow", follow_user_path(@user) %></button>
+                     <% if current_user.following?(@user)%>
+                     <button type="button" class="btn btn-danger btn-block makeWhite">
+                     <%= link_to "Unfollow", unfollow_user_path(@user) %>        
+                     </button >
+                    <% else %>
+                     <button type="button" class="btn btn-success btn-block makeWhite">
+                        <%= link_to "Follow", follow_user_path(@user) %>
+                     </button>
+                     <% end %>
                 </div>
                 <div class="col-xs-12 col-sm-4 emphasis">
                     <h2><strong><%= @user.follow_count %></strong></h2>                    
                     <p><small>Following</small></p>
-                    <button class="btn btn-info btn-block"><span class="fa fa-user"></span> View Profile </button>
+
                 </div>
                 <div class="col-xs-12 col-sm-4 emphasis">
-                    <h2><strong>43</strong></h2>                    
-                    <p><small>Snippets</small></p>
-                    <div class="btn-group dropup btn-block">
-                      <button type="button" class="btn btn-primary"><span class="fa fa-gear"></span> Options </button>
-                      <button type="button" class="btn btn-primary dropdown-toggle" data-toggle="dropdown">
-                        <span class="caret"></span>
-                        <span class="sr-only">Toggle Dropdown</span>
-                      </button>
-                      <ul class="dropdown-menu text-left" role="menu">
-                      	Add in JavaScript to follow or unfollow
-                        <li><a href="#" class="btn disabled" role="button"><%= link_to "Unfollow", unfollow_user_path(@user) %>	 	
- 						</a></li>
-                      </ul>
-                    </div>
+                    <% if current_user.id == @user.id %>
+                    <h2><strong>Delete</strong></h2>                    
+                    <%= link_to t('.destroy', :default => t("helpers.links.destroy")),
+                                user_path(@user),
+                                :method => :delete,
+                                :data => { :confirm => t('.confirm', :default => t("helpers.links.confirm", :default => 'Are you sure?')) },
+                                :class => 'btn btn-mini btn-danger' %>
+                    <% else %>
+                    <% end %>
                 </div>
             </div>
     	 </div>                 
