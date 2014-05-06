@@ -13,12 +13,13 @@
  */
 
  body {
+  background-image: url("tex2res4.png");
  	padding-top: 40px;
  	color: white;
  }
 
 .navbar-nav > li > a {
-	color: white !important;
+	color: #999 !important;
 }
 
 .navbar-nav > li > .btn {
@@ -33,19 +34,28 @@
   margin: 7px !important;
 }
 
+.btn-warning {
+  background-color: #999 !important;
+  border-color: #997 !important
+}
+
+.btn-warning:hover > li > a {
+  color: gray;
+}
 .btn-warning > li > a{
-	color: white;
+	color: #E6E6E6;
 }
 
 .navbar-inverse {
-  background-color: #024A68 !important;
-  border-color: gray !important;
+  background-color: rgba(255,255,255,0.9) !important;
+  border-bottom-color: gray !important;
 }
 .navbar-inverse .navbar-nav > .active > a,
 .navbar-inverse .navbar-nav > .active > a:hover,
 .navbar-inverse .navbar-nav > .active > a:focus {
+  height: 45px !important;
   color: white !important;
-  background-color: pink !important;
+  background-color: #A65353 !important;
 }
 
 .navbar-brand {
