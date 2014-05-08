@@ -43,3 +43,75 @@
 	<% end %>
 	<div class="fb-like" data-href="https://developers.facebook.com/docs/plugins/" data-layout="box_count" data-action="like" data-show-faces="true" data-share="true"></div>
 </div>
+
+<div class="container">
+	<div class="row">
+		<div class="col-md-offset-2 col-md-8 col-lg-offset-3 col-lg-6">
+    	 <div class="well profile">
+            <div class="col-sm-12">
+                <div class="col-xs-12 col-sm-8">
+                    <h2><%= @workout.title %></h2>
+                    <p><strong>About: </strong><%= @workout.category %></p>
+                    <p><strong>Email: </strong><%= @workout.excercise %></p>
+
+                </div>             
+                <div class="col-xs-12 col-sm-4 text-center">
+                    <figure>
+                        <img src="http://png-1.findicons.com/files/icons/2711/free_icons_for_windows8_metro/512/dumbbell.png" alt="" class="img-circle img-responsive">
+                        <figcaption class="ratings">
+                            
+                            <a href="#">
+                                <span class="fa fa-star"></span>
+                            </a>
+                            <a href="#">
+                                <span class="fa fa-star"></span>
+                            </a>
+                            <a href="#">
+                                <span class="fa fa-star"></span>
+                            </a>
+                            <a href="#">
+                                <span class="fa fa-star"></span>
+                            </a>
+                            <a href="#">
+                                 <span class="fa fa-star-o"></span>
+                            </a> 
+                            
+                        </figcaption>
+                    </figure>
+                </div>
+            </div>            
+            <div class="col-xs-12 divider text-center">
+                <div class="col-xs-12 col-sm-4 emphasis">
+                    <h2><strong><%= @workout.votes_for %></strong></h2>                    
+                    <p><small>Followers</small></p>
+                     <% if current_user.following?(@workout.user)%>
+                     <button type="button" class="btn btn-danger btn-block makeWhite">
+                     <%= link_to "Unfollow", unfollow_user_path(@workout.user) %>        
+                     </button >
+                    <% else %>
+                     <button type="button" class="btn btn-success btn-block makeWhite">
+                        <%= link_to "Follow", follow_user_path(@workout.user) %>
+                     </button>
+                     <% end %>
+                </div>
+                <div class="col-xs-12 col-sm-4 emphasis">
+                    <h2><strong><%= @workout.user.follow_count %></strong></h2>                    
+                    <p><small>Following</small></p>
+
+                </div>
+                <div class="col-xs-12 col-sm-4 emphasis">
+                    <% if current_user.id == @workout.user.id %>
+                    <h2><strong>Delete</strong></h2>                    
+                    <%= link_to t('.destroy', :default => t("helpers.links.destroy")),
+                                user_path(@user),
+                                :method => :delete,
+                                :data => { :confirm => t('.confirm', :default => t("helpers.links.confirm", :default => 'Are you sure?')) },
+                                :class => 'btn btn-mini btn-danger' %>
+                    <% else %>
+                    <% end %>
+                </div>
+            </div>
+    	 </div>                 
+		</div>
+	</div>
+</div>

@@ -1,24 +1,55 @@
-<h2>Sign up</h2>
+<style type="text/css">
+.border-form-div {
+  max-width: 350px;
+  padding: 19px 29px 29px;
+  margin: 0 auto 20px;
+  background-color: #fff;
+  border: 1px solid #e5e5e5;
+  -webkit-border-radius: 5px;
+     -moz-border-radius: 5px;
+          border-radius: 5px;
+  -webkit-box-shadow: 0 1px 2px rgba(0,0,0,.05);
+     -moz-box-shadow: 0 1px 2px rgba(0,0,0,.05);
+          box-shadow: 0 1px 2px rgba(0,0,0,.05);
+}
+.border-form-div .form-signin-heading,
+.border-form-div .checkbox {
+  margin-bottom: 10px;
+}
 
-<%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
-  <%= devise_error_messages! %>
+textarea {
+  height: 100px;
+  width: 300px;
+}
+.border-form-div input[type="text"],
+.border-form-div input[type="email"],
+.border-form-div input[type="password"] {
+  font-size: 16px;
+  height: auto;
+  margin-bottom: 15px;
+  padding: 7px 9px;
+}
+/*
+.border-form-div input[type="text_area"] {
+  font-size: 14px;
+  height: 40px;
+  margin-bottom: 15px;
+  padding: 7px 9px;
+}*/
+</style>
 
-   <div><%= f.label :username %><br />
-  <%= f.text_field :username, autofocus: true %></div>
+<div class="border-form-div">
+  <h2>Sign Up</h2>
+  <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
+    <%= devise_error_messages! %>
 
-  <div><%= f.label :email %><br />
-  <%= f.email_field :email, autofocus: true %></div>
+    <%= f.text_field :username, autofocus: true %><span class="help-inline" style="margin-left:5px; color:#A2A2A3">UserName</span>
+    <%= f.email_field :email, :autofocus => true %><span class="help-inline" style="margin-left:5px; color:#A2A2A3">Email</span>
+    <%= f.text_area :about, autofocus: true, placeholder: "Tell us about yourself, i.e. Sport you play, crossfit, etc ..." %>
+    <%= f.password_field :password %> <span class="help-inline" style="margin-left:1px; color:#A2A2A3">Password</span>
+    <%= f.password_field :password_confirmation, autocomplete: "off" %><span class="help-inline" style="margin-left:5px; color:#A2A2A3">Confirm</span>
+    <%= f.submit "Sign UP" %>
+  <% end %>
+  <%= render "devise/shared/links" %>
+</div>
 
-  <div><%= f.label :about %><br />
-  <%= f.text_area :about, autofocus: true %></div>
-
-  <div><%= f.label :password %><br />
-    <%= f.password_field :password, autocomplete: "off" %></div>
-
-  <div><%= f.label :password_confirmation %><br />
-    <%= f.password_field :password_confirmation, autocomplete: "off" %></div>
-
-  <div><%= f.submit "Sign up" %></div>
-<% end %>
-
-<%= render "devise/shared/links" %>

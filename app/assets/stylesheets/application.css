@@ -14,8 +14,7 @@
 
  body {
   background-image: url("tex2res4.png");
- 	padding-top: 40px;
- 	color: white;
+ 	padding-top: 70px !important;
  }
 
 .navbar-nav > li > a {
@@ -26,9 +25,6 @@
 	margin-top: 7px;
 }
 
-/*.navbar-right > li > .btn {
-	margin: 7px !important;
-}*/
 
 .right-btn{
   margin: 7px !important;
@@ -47,8 +43,9 @@
 }
 
 .navbar-inverse {
-  background-color: rgba(255,255,255,0.9) !important;
+  background-color: #F3F3F3 !important;
   border-bottom-color: gray !important;
+  position: fixed !important;
 }
 .navbar-inverse .navbar-nav > .active > a,
 .navbar-inverse .navbar-nav > .active > a:hover,
