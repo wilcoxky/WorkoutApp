@@ -33,8 +33,22 @@ h1 {
 .editBlue {
 	background-color: #6FB1B1;
 }
+
+.AltHeader > h1 {
+	color: black;
+}
+.AltHeader > h1 > a {
+	color: #A65353;
+}
 </style>
 
+<% if @workouts.length() == 0%>
+<div class = "well">
+<div class = "AltHeader">
+	<h1>Follow some users at <%= link_to "Users Portal", users_path %></h1>
+</div>
+</div>
+<% else %>
 <div class = "header">
 <h1>Your Friends Recent Activity</h1>
 </div>
@@ -71,3 +85,4 @@ h1 {
  	<% end %>
 </table>
 </div>
+<% end %>

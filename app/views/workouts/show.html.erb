@@ -4,6 +4,36 @@
     margin-right: 300px;
     margin-left: 300px;
 }
+
+.well > h6 > a {
+    color: #A65353;
+}
+.makeLinkRed {
+    color: #A65353;
+}
+.editBlue {
+    background-color: #6FB1B1;
+}
+
+.editWhite {
+    color: white;
+}
+.comments > a {
+    color: white;
+}
+
+.btn-mini {
+  padding: 0 6px;
+  font-size: 12px !important;
+  -webkit-border-radius: 3px;
+     -moz-border-radius: 3px;
+          border-radius: 3px;
+}
+
+.likes {
+    float: right;
+}
+
 </style>
 
 <div id="fb-root"></div>
@@ -18,26 +48,38 @@
 
 <div class = "well">
 <h1><%= @workout.title %></h1>
-<h6>Created By: <%= link_to @workout.user.username, user_path(@workout.user.id) %></h6>
+<div class = "likes">
+    <h3>Likes</h3>
+    <p>
+    <% if !current_user.voted_on?(@workout) %>
+     <%= button_to "Like", vote_up_workout_path(@workout), class: "btn btn-primary btn-mini icon-ok icon-white editBlue"%>
+    <% else %>
+     <%= button_to "Unlike", unvote_workout_path(@workout), class: "btn btn-primary btn-mini icon-ok icon-white editBlue" %>
+     <% end %>
+ </p>
+     <p># of Likes: <%= @workout.votes_for %> </p>
+    <p>
+    <div class="fb-like" data-href="https://developers.facebook.com/docs/plugins/" data-layout="box_count" data-action="like" data-show-faces="true" data-share="true"></div>
+</p>
+</div>
+<h6>Created By: <%= link_to @workout.user.username, user_path(@workout.user.id), class: "makeLinkRed" %></h6>
 
-<div>
-	<p></p>
-	<p>Category: <%= @workout.category %></p>
+<div class = "content">
+	<p>Category:<%= @workout.category %></p>
 	<p>Excercise: <%= @workout.excercise%> </p>
-	<div class = "container">
-    	<button class = "ComButton">Show Comments</button>
+    <p><%= link_to "Add Comment", new_comment_path , class: "btn btn-default editBlue editWhite"%>
+    	<button class = "ComButton btn btn-default editBlue editWhite">Show Comments</button>
     	<div class = "comments">
-    		<p>Comments:</p>
     		<% @comments.each do |comment| %>
-    			<h6>Comment By : <%= link_to comment.user.username, user_path(comment.user.id) %></h6>
-    			<p>Body : <%= comment.body %></p>
+                <div class = "">
+    			<h6><%= link_to comment.user.username, user_path(comment.user.id), class: "makeLinkRed" %> said: </h6>
+    			<p><%= comment.body %></p>
+            </div>
     		<% end %>
     	</div>
-  	</div>
-
-	<%= link_to "Add Comment", new_comment_path %>
-    <div class="fb-like" data-href="https://developers.facebook.com/docs/plugins/" data-layout="box_count" data-action="like" data-show-faces="true" data-share="true"></div>
-	<% if current_user.id == @workout.user.id %>
+    </p>
+	
+    <% if current_user.id == @workout.user.id %>
 	<p>Remove your workout?</p>
 	<%= link_to t('.destroy', :default => t("helpers.links.destroy")),
 	            workout_path(@workout),

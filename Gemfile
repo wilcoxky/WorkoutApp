@@ -18,7 +18,7 @@ gem 'devise'
 gem 'simple_form'
 gem 'thumbs_up'
 gem 'acts_as_follower'
-
+gem 'jquery-turbolinks'
 
 
 # Use SCSS for stylesheets
