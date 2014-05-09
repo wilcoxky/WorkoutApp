@@ -1,6 +1,6 @@
 <style type="text/css">
 body {
-	color: white;
+	color: black;
 }
 body > table > tr > a {
 	color: white !important;
@@ -9,38 +9,64 @@ body > table > tr > a {
 	margin-left: 50px;
 	font-weight: bold;
 }
+.changeRed {
+	color: #A65353;
+}
+h1 {
+	color: white;
+}
+
+.well {
+	margin-bottom: 100px !important;
+	margin-left: 20px !important;
+	margin-right: 20px !important;
+}
+
+.btn-mini {
+  padding: 0 6px;
+  font-size: 10px !important;
+  -webkit-border-radius: 3px;
+     -moz-border-radius: 3px;
+          border-radius: 3px;
+}
+
+.editBlue {
+	background-color: #6FB1B1;
+}
 </style>
 
 <div class = "header">
 <h1>Workouts</h1>
 </div>
 
+<div class = "well">
 <table class="table">
  	<tr>
  		<td>Title</td>
- 		<td><%= link_to "Target Area", scoped_path("by_cat"), id: "sort_link" %></td>
+ 		<td><%= link_to "Target Area", scoped_path("by_cat"), id: "sort_link", class: "changeRed"%></td>
  		<td>Excercise</td>
- 		<td><%= link_to "Created By", scoped_path("by_user"), id: "sort_link" %></td>
- 		<td><%= link_to "Date Created", scoped_path("by_newest"), id: "sort_link" %></td>
- 		<td><%= link_to "Likes", scoped_path("top"), id: "sort_link" %></td>
+ 		<td><%= link_to "Created By", scoped_path("by_user"), id: "sort_link", class: "changeRed"%></td>
+ 		<td><%= link_to "Date Created", scoped_path("by_newest"), id: "sort_link", class: "changeRed"%></td>
+ 		<td><%= link_to "Likes", scoped_path("top"), id: "sort_link", class: "changeRed" %></td>
  	</tr>
  	
  	<% @workouts.each do |workout| %>
  	<tr>
- 		<td><%= link_to workout.title, workout_path(workout)%></td>
+ 		<td><%= link_to workout.title, workout_path(workout), class: "changeRed"%></td>
  		<td><%= workout.category %></td>
  		<td><%= workout.excercise %></td>
- 		<td><%= link_to workout.user.username, user_path(workout.user.id) %></td>
+ 		<td><%= link_to workout.user.username, user_path(workout.user.id), class: "changeRed" %></td>
  		<td><%= workout.created_at %></td>
  		<td>
  			<%= workout.votes_for%>
  			<% if !current_user.voted_on?(workout) %>
- 			 <%= button_to "Like", vote_up_workout_path(workout), class: "btn btn-primary btn-mini icon-ok icon-white"%>
+ 			 <%= button_to "Like", vote_up_workout_path(workout), class: "btn btn-primary btn-mini icon-ok icon-white editBlue"%>
  			<% else %>
- 			 <%= button_to "Unlike", unvote_workout_path(workout), class: "btn btn-primary btn-mini icon-ok icon-white" %>
+ 			 <%= button_to "Unlike", unvote_workout_path(workout), class: "btn btn-primary btn-mini icon-ok icon-white editBlue" %>
  			 <% end %>
  		</td>
  	</tr>
 
  	<% end %>
 </table>
+</div>

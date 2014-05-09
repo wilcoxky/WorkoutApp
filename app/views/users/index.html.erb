@@ -1,14 +1,36 @@
 <style type="text/css">
 body {
-	color: white;
+	color: black;
 }
 .makeWhite > a {
 	color: white;
+}
+
+.well {
+	margin-bottom: 100px !important;
+	margin-left: 20px !important;
+	margin-right: 20px !important;
+}
+h1 {
+	margin-left: 30px;
+	color:white;
+}
+
+.change2Red {
+	color: #A65353;
+}
+
+.editRed {
+	background-color: #A65353;
+}
+.editGreen {
+	background-color: #428542;
 }
 </style>
 
 <h1>Fellow Trainers</h1>
 
+<div class = "well">
 <table class="table">
  	<tr>
  		<td>Email</td>
@@ -18,15 +40,15 @@ body {
  	
  	<% @users.each do |user| %>
  	<tr>
- 		<td><%= link_to user.email, user_path(user.id) %></td>
+ 		<td><%= link_to user.email, user_path(user.id), class: "change2Red"%></td>
  		<td><%= user.username %></td>
  		<td>
  	 <% if current_user.following?(user)%>
- 	 <button type="button" class="btn btn-danger btn-sm makeWhite">
+ 	 <button type="button" class="btn btn-danger btn-sm makeWhite editRed">
  	 <%= link_to "Unfollow", unfollow_user_path(user) %>	 	
  	 </button >
  	<% else %>
- 	 <button type="button" class="btn btn-success btn-sm makeWhite">
+ 	 <button type="button" class="btn btn-success btn-sm makeWhite editGreen">
  	 	<%= link_to "Follow", follow_user_path(user) %>
  	 </button>
  	 <% end %>
@@ -34,3 +56,4 @@ body {
  	</tr>
  	<% end %>
 </table>
+</div>

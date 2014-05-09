@@ -2,6 +2,14 @@
 .makeWhite > a{
     color: white;
 }
+
+.editRed {
+    background-color: #A65353;
+}
+.editGreen {
+    background-color: #428542;
+}
+
 </style>
 <div class="container">
 	<div class="row">
@@ -44,11 +52,11 @@
                     <h2><strong><%= @user.followers_count %></strong></h2>                    
                     <p><small>Followers</small></p>
                      <% if current_user.following?(@user)%>
-                     <button type="button" class="btn btn-danger btn-block makeWhite">
+                     <button type="button" class="btn btn-danger btn-block makeWhite editRed">
                      <%= link_to "Unfollow", unfollow_user_path(@user) %>        
                      </button >
                     <% else %>
-                     <button type="button" class="btn btn-success btn-block makeWhite">
+                     <button type="button" class="btn btn-success btn-block makeWhite editGreen">
                         <%= link_to "Follow", follow_user_path(@user) %>
                      </button>
                      <% end %>
@@ -60,12 +68,12 @@
                 </div>
                 <div class="col-xs-12 col-sm-4 emphasis">
                     <% if current_user.id == @user.id %>
-                    <h2><strong>Delete</strong></h2>                    
+                    <h2><strong>Cancel Account</strong></h2>                    
                     <%= link_to t('.destroy', :default => t("helpers.links.destroy")),
                                 user_path(@user),
                                 :method => :delete,
                                 :data => { :confirm => t('.confirm', :default => t("helpers.links.confirm", :default => 'Are you sure?')) },
-                                :class => 'btn btn-mini btn-danger' %>
+                                :class => 'btn btn-mini btn-danger editRed' %>
                     <% else %>
                     <% end %>
                 </div>

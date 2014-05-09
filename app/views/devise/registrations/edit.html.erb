@@ -1,29 +1,57 @@
 <h2>Edit <%= resource_name.to_s.humanize %></h2>
 
-<%= form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }) do |f| %>
-  <%= devise_error_messages! %>
+<style type="text/css">
+.border-form-div {
+  max-width: 550px;
+  padding: 19px 29px 29px;
+  margin: 0 auto 20px;
+  background-color: #fff;
+  border: 1px solid #e5e5e5;
+  -webkit-border-radius: 5px;
+     -moz-border-radius: 5px;
+          border-radius: 5px;
+  -webkit-box-shadow: 0 1px 2px rgba(0,0,0,.05);
+     -moz-box-shadow: 0 1px 2px rgba(0,0,0,.05);
+          box-shadow: 0 1px 2px rgba(0,0,0,.05);
+}
+.border-form-div .form-signin-heading,
+.border-form-div .checkbox {
+  margin-bottom: 10px;
+}
 
-  <div><%= f.label :email %><br />
-  <%= f.email_field :email, autofocus: true %></div>
+textarea {
+  height: 100px;
+  width: 300px;
+}
+.border-form-div input[type="text"],
+.border-form-div input[type="email"],
+.border-form-div input[type="password"] {
+  font-size: 16px;
+  height: auto;
+  margin-bottom: 15px;
+  padding: 7px 9px;
+}
+/*
+.border-form-div input[type="text_area"] {
+  font-size: 14px;
+  height: 40px;
+  margin-bottom: 15px;
+  padding: 7px 9px;
+}*/
+</style>
 
-  <% if devise_mapping.confirmable? && resource.pending_reconfirmation? %>
-    <div>Currently waiting confirmation for: <%= resource.unconfirmed_email %></div>
+<div class="border-form-div">
+  <h2>Edit Up</h2>
+  <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
+    <%= devise_error_messages! %>
+
+    <%= f.text_field :username, autofocus: true %><span class="help-inline" style="margin-left:5px; color:#A2A2A3">Change UserName</span>
+    <%= f.email_field :email, :autofocus => true %><span class="help-inline" style="margin-left:5px; color:#A2A2A3">Change Email</span>
+    <%= f.text_area :about, autofocus: true, placeholder: "Edit About Yourself" %>
+    <%= f.password_field :password %> <span class="help-inline" style="margin-left:1px; color:#A2A2A3">Password</span>
+  </br>
+    <%= f.password_field :password_confirmation, autocomplete: "off" %><span class="help-inline" style="margin-left:5px; color:#A2A2A3">Confirm Password</span>
+  </br>
+    <%= f.submit "Submit Changes" %>
   <% end %>
-
-  <div><%= f.label :password %> <i>(leave blank if you don't want to change it)</i><br />
-    <%= f.password_field :password, autocomplete: "off" %></div>
-
-  <div><%= f.label :password_confirmation %><br />
-    <%= f.password_field :password_confirmation, autocomplete: "off" %></div>
-
-  <div><%= f.label :current_password %> <i>(we need your current password to confirm your changes)</i><br />
-    <%= f.password_field :current_password, autocomplete: "off" %></div>
-
-  <div><%= f.submit "Update" %></div>
-<% end %>
-
-<h3>Cancel my account</h3>
-
-<p>Unhappy? <%= button_to "Cancel my account", registration_path(resource_name), data: { confirm: "Are you sure?" }, method: :delete %></p>
-
-<%= link_to "Back", :back %>
+</div>
