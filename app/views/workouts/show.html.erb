@@ -3,6 +3,7 @@
 .well {
     margin-right: 300px;
     margin-left: 300px;
+    padding-bottom: 50px;
 }
 
 .well > h6 > a {
@@ -86,6 +87,7 @@
 	            :method => :delete,
 	            :data => { :confirm => t('.confirm', :default => t("helpers.links.confirm", :default => 'Are you sure?')) },
 	            :class => 'btn btn-mini btn-danger' %>
+    <%= link_to "Update Workout", edit_workout_path(@workout.id), class: "makeLinkRed" %>
 	<% else %>
 	<% end %>
 	

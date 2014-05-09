@@ -1,25 +1,113 @@
-<h1>Workouts#edit</h1>
-<p>Find me in app/views/workouts/edit.html.erb</p>
+<style type="text/css">
+.border-form-div {
+  max-width: 600px;
+  padding: 19px 29px 29px;
+  margin: 0 auto 20px;
+  background-color: #fff;
+  border: 1px solid #e5e5e5;
+  -webkit-border-radius: 5px;
+     -moz-border-radius: 5px;
+          border-radius: 5px;
+  -webkit-box-shadow: 0 1px 2px rgba(0,0,0,.05);
+     -moz-box-shadow: 0 1px 2px rgba(0,0,0,.05);
+          box-shadow: 0 1px 2px rgba(0,0,0,.05);
+}
+.border-form-div .form-signin-heading,
+.border-form-div .checkbox {
+  margin-bottom: 10px;
+}
 
+textarea {
+  height: 100px;
+  width: 300px;
+}
+.border-form-div input[type="text"],
+.border-form-div input[type="email"],
+.border-form-div input[type="password"] {
+  font-size: 16px;
+  height: auto;
+  margin-bottom: 15px;
+  padding: 7px 9px;
+}
+
+.border-form-div input[type="submit"] {
+    vertical-align: top;
+    -webkit-border-radius: 0;
+       -moz-border-radius: 0;
+            border-radius: 0;
+    display: inline-block;
+    *display: inline;
+    padding: 4px 12px;
+    margin-bottom: 0;
+    *margin-left: .3em;
+    font-size: 14px;
+    line-height: 20px;
+    color: #333333;
+    text-align: center;
+    text-shadow: 0 1px 1px rgba(255, 255, 255, 0.75);
+    vertical-align: middle;
+    cursor: pointer;
+    background-color: #f5f5f5;
+    *background-color: #e6e6e6;
+    background-image: -moz-linear-gradient(top, #ffffff, #e6e6e6);
+    background-image: -webkit-gradient(linear, 0 0, 0 100%, from(#ffffff), to(#e6e6e6));
+    background-image: -webkit-linear-gradient(top, #ffffff, #e6e6e6);
+    background-image: -o-linear-gradient(top, #ffffff, #e6e6e6);
+    background-image: linear-gradient(to bottom, #ffffff, #e6e6e6);
+    background-repeat: repeat-x;
+    border: 1px solid #cccccc;
+    *border: 0;
+    border-color: #e6e6e6 #e6e6e6 #bfbfbf;
+    border-color: rgba(0, 0, 0, 0.1) rgba(0, 0, 0, 0.1) rgba(0, 0, 0, 0.25);
+    border-bottom-color: #b3b3b3;
+    -webkit-border-radius: 4px;
+       -moz-border-radius: 4px;
+            border-radius: 4px;
+    filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#ffffffff', endColorstr='#ffe6e6e6', GradientType=0);
+    filter: progid:DXImageTransform.Microsoft.gradient(enabled=false);
+    *zoom: 1;
+    -webkit-box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.2), 0 1px 2px rgba(0, 0, 0, 0.05);
+       -moz-box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.2), 0 1px 2px rgba(0, 0, 0, 0.05);
+            box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.2), 0 1px 2px rgba(0, 0, 0, 0.05);
+}
+</style>
+
+<div class = "border-form-div">
+    <h1>Edit Your Workout</h1>
+<!-- End Test -->
+<div class="form-horizontal">
 <%= form_for(@workout) do |f| %>
+<div class ="error-msg">
+  <% if @workout.errors.any? %>
+  <ul>
+    <% @workout.errors.full_messages.each do |msg| %>
+    <li><%= msg %></li>
+    <% end %>
+  </ul>
+  <% end %>
+</div>
+
+
     <div class="field">
         <p>Title</p> 
-        <%= f.text_field :title%>
+        <%= f.text_field :title, hint: 'Title'%>
     </div>
-    <div>
-    	<p>Catergories</p>
-    	<%= f.text_field :category%>
+    <div class="field">
+        <p>Catergories</p>
+        <%= f.select :category, options_for_select(["Upper Body", "Lower Body", "Chest", "Olympic Lift", "Full Body"])%>
+         <span class="help-inline" style="margin-top: -8px; color:#B1B1B3;" id="help_department">Target Area of Workout</span>
     </div>
-    <div>
-    	<p>Excercise</p>
-    	<%= f.text_area :excercise%>
+    <div class="field">
+        <p>Excercise</p>
+        <%= f.text_area :excercise, placeholder: "Format: Sets # Reps x per excercise" %>
     </div>
 
     <div class="field">
-        <p>User</p> 
-        <%= f.collection_select :user_id, User.all, :id, :email%>
+        <%= f.hidden_field :user_id, :value => current_user.id%>
     </div>
-    <div class="actions">
+    <div class="">
         <%= f.submit %>
     </div>
 <% end %>
+</div>
+</div>
