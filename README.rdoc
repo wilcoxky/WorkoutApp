@@ -15,6 +15,7 @@ to have more of the feel that I wanted for the App. Specficly if you look into m
 of certain elements along with the color.
 
 -JavaScript: 
+Quick Note: Even with the updated gem and what we did in class sometimes the javascript does work
 I did not use that much javascript in my code, the only time this occurs is when you hide and show comments within
 the workouts-show. There is some hover functions and resizing handled by bootstrap
 
@@ -63,9 +64,9 @@ Validations:
 
 JQuery/Scopes:  
 -Areas where Queries are used
-- followers for the dashboard
-- Multiple are used in order to sort the chart (I think 4)
-- Also used to get the comments for each workout in their show method
+-followers for the dashboard
+-Multiple are used in order to sort the chart (I think 4)
+-Also used to get the comments for each workout in their show method
 
 Just wanted to say thanks for all the help this sememster, I really learned a lot and you guys were really patient with me, 
 even though sometimes is was just styling.....
