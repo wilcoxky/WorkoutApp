@@ -31,22 +31,22 @@ Other Add-On
   
 DataBase/Resources:
 -Users:
--Email: string
--Username: string
--Password: string
+  -Email: string
+  -Username: string
+  -Password: string
 Able to create, delete and show but did not include an Update.
 
 -Workouts:
--Excercise: text
--Category: string
--Title: string
-- user: belongs_to
+  -Excercise: text
+  -Category: string
+  -Title: string
+  -user: belongs_to
 Able to do all CRUD, in index you are able to sort
 
 -Comments:
--body: text
--workout: belongs_to
--user: belongs_to
+  -body: text
+  -workout: belongs_to
+  -user: belongs_to
 Able to create and see but does not have Update or delete
 
 Other- I also added a home page and about page. The home page will direct you to your dashboard if you are logged in, else
