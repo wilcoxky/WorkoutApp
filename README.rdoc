@@ -9,25 +9,28 @@ following appear in your dashboard.
 
 Heroku Link: http://still-escarpment-1289.herokuapp.com/
 
--CSS: I was able to use bootstrap to style most of my site, but I added my own customization to allow it 
+-CSS: 
+I was able to use bootstrap to style most of my site, but I added my own customization to allow it 
 to have more of the feel that I wanted for the App. Specficly if you look into my code you will see that I change the size
 of certain elements along with the color.
 
--JavaScript: I did not use that much javascript in my code, the only time this occurs is when you hide and show comments within
+-JavaScript: 
+I did not use that much javascript in my code, the only time this occurs is when you hide and show comments within
 the workouts-show. There is some hover functions and resizing handled by bootstrap
 
-Gems
-  Act as Follower(Handle following and followees) https://github.com/tcocca/acts_as_follower
-  Thumbs Up(Handle liking workouts) https://github.com/bouchard/thumbs_up
-  Devise(Account creation, validation, and authentication) https://github.com/plataformatec/devise
-  JQuery-Turbolinks(Used for javascript) https://github.com/kossnocorp/jquery.turbolinks
+Gems:
+Act as Follower(Handle following and followees) https://github.com/tcocca/acts_as_follower
+Thumbs Up(Handle liking workouts) https://github.com/bouchard/thumbs_up
+Devise(Account creation, validation, and authentication) https://github.com/plataformatec/devise
+JQuery-Turbolinks(Used for javascript) https://github.com/kossnocorp/jquery.turbolinks
 
-Heroku Add-On 
-  SendGrid
-  Used SendGrid to send notifications when a workout is commented on
-  https://sendgrid.com/docs/Integrate/Frameworks/rubyonrails.html
-Other Add-On
-  Hunter show me how to add on Facebook likes, which is added to the show method of workouts
+Heroku Add-On:
+SendGrid
+Used SendGrid to send notifications when a workout is commented on
+https://sendgrid.com/docs/Integrate/Frameworks/rubyonrails.html
+
+Other Add-On:
+Hunter show me how to add on Facebook likes, which is added to the show method of workouts
   
 DataBase/Resources:
 -Users:
