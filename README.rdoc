@@ -16,34 +16,34 @@ of certain elements along with the color.
 -JavaScript: I did not use that much javascript in my code, the only time this occurs is when you hide and show comments within
 the workouts-show. There is some hover functions and resizing handled by bootstrap
 
--Gems:
-  Act as Follower(Handle following and followees)
-  Thumbs Up(Handle liking workouts)
-  Devise(Account creation, validation, and authentication)
-  JQuery(Used for javascript)
+-Gems
+  Act as Follower(Handle following and followees) https://github.com/tcocca/acts_as_follower
+  Thumbs Up(Handle liking workouts) https://github.com/bouchard/thumbs_up
+  Devise(Account creation, validation, and authentication) https://github.com/plataformatec/devise
+  JQuery-Turbolinks(Used for javascript) https://github.com/kossnocorp/jquery.turbolinks
 
--Heroku Add-On: 
+-Heroku Add-On 
   SendGrid
   Used SendGrid to send notifications when a workout is commented on
   https://sendgrid.com/docs/Integrate/Frameworks/rubyonrails.html
 -Other Add-On
   Hunter show me how to add on Facebook likes, which is added to the show method of workouts
   
--DataBase/Resources: 
+-DataBase/Resources:
 Users:
 -Email: string
 -Username: string
 -Password: string
 Able to create, delete and show but did not include an Update.
 
-Workouts:
+-Workouts:
 -Excercise: text
 -Category: string
 -Title: string
 - user: belongs_to
 Able to do all CRUD, in index you are able to sort
 
-Comments:
+-Comments:
 -body: text
 -workout: belongs_to
 -user: belongs_to
