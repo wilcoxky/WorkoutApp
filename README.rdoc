@@ -1,28 +1,71 @@
-== README
+Kyle Wilcox
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+FINAL PROJECT
 
-Things you may want to cover:
+Description: My app provides a way for people to share workouts and follow users other users that make workouts. The goal
+of this site is to facilitate training and allow for the spread and easy access to workouts. The functionality of the site is 
+pretty simple, you can create a workout, like other workouts, follow other users, and have the workouts of the people you are 
+following appear in your dashboard. 
 
-* Ruby version
+Heroku Link: http://still-escarpment-1289.herokuapp.com/
 
-* System dependencies
+-CSS: 
+I was able to use bootstrap to style most of my site, but I added my own customization to allow it 
+to have more of the feel that I wanted for the App. Specficly if you look into my code you will see that I change the size
+of certain elements along with the color.
 
-* Configuration
+-JavaScript: 
+I did not use that much javascript in my code, the only time this occurs is when you hide and show comments within
+the workouts-show. There is some hover functions and resizing handled by bootstrap
 
-* Database creation
+Gems:
+Act as Follower(Handle following and followees) https://github.com/tcocca/acts_as_follower
+Thumbs Up(Handle liking workouts) https://github.com/bouchard/thumbs_up
+Devise(Account creation, validation, and authentication) https://github.com/plataformatec/devise
+JQuery-Turbolinks(Used for javascript) https://github.com/kossnocorp/jquery.turbolinks
 
-* Database initialization
+Heroku Add-On:
+SendGrid
+Used SendGrid to send notifications when a workout is commented on
+https://sendgrid.com/docs/Integrate/Frameworks/rubyonrails.html
 
-* How to run the test suite
+Other Add-On:
+Hunter show me how to add on Facebook likes, which is added to the show method of workouts
+  
+DataBase/Resources:
+-Users:
+  -Email: string
+  -Username: string
+  -Password: string
+Able to create, delete and show but did not include an Update.
 
-* Services (job queues, cache servers, search engines, etc.)
+-Workouts:
+  -Excercise: text
+  -Category: string
+  -Title: string
+  -user: belongs_to
+Able to do all CRUD, in index you are able to sort
 
-* Deployment instructions
+-Comments:
+  -body: text
+  -workout: belongs_to
+  -user: belongs_to
+Able to create and see but does not have Update or delete
 
-* ...
+Other- I also added a home page and about page. The home page will direct you to your dashboard if you are logged in, else
+it takes you to a default home page. 
 
+Validations:
+-In comments there is a check to see if there is anything present
+-User uses Devises in-house to validate 
+-Workouts validates the length of the excercises, and also if the presence in title
+-Also checks to see the current users relation with likes and certain workouts 
 
-Please feel free to use a different markup language if you do not plan to run
-<tt>rake doc:app</tt>.
+JQuery/Scopes:  
+-Areas where Queries are used
+- followers for the dashboard
+- Multiple are used in order to sort the chart (I think 4)
+- Also used to get the comments for each workout in their show method
+
+Just wanted to say thanks for all the help this sememster, I really learned a lot and you guys were really patient with me, 
+even though sometimes is was just styling.....
