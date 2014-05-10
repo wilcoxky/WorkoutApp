@@ -38,17 +38,19 @@ textarea {
 }*/
 </style>
 
+
 <div class="border-form-div">
   <h2>Sign Up</h2>
   <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
-    <%= devise_error_messages! %>
-
     <%= f.text_field :username, autofocus: true %><span class="help-inline" style="margin-left:5px; color:#A2A2A3">UserName</span>
     <%= f.email_field :email, :autofocus => true %><span class="help-inline" style="margin-left:5px; color:#A2A2A3">Email</span>
     <%= f.text_area :about, autofocus: true, placeholder: "Tell us about yourself, i.e. Sport you play, crossfit, etc ..." %>
     <%= f.password_field :password %> <span class="help-inline" style="margin-left:1px; color:#A2A2A3">Password</span>
     <%= f.password_field :password_confirmation, autocomplete: "off" %><span class="help-inline" style="margin-left:5px; color:#A2A2A3">Confirm</span>
+    <%= devise_error_messages! %>
+
     <%= f.submit "Sign Up" %>
+
   <% end %>
   <%= render "devise/shared/links" %>
 </div>
