@@ -20,10 +20,10 @@ I did not use that much javascript in my code, the only time this occurs is when
 the workouts-show. There is some hover functions and resizing handled by bootstrap
 
 Gems:
--Act as Follower(Handle following and followees) https://github.com/tcocca/acts_as_follower
--Thumbs Up(Handle liking workouts) https://github.com/bouchard/thumbs_up
--Devise(Account creation, validation, and authentication) https://github.com/plataformatec/devise
--JQuery-Turbolinks(Used for javascript) https://github.com/kossnocorp/jquery.turbolinks
+Act as Follower(Handle following and followees) https://github.com/tcocca/acts_as_follower, 
+Thumbs Up(Handle liking workouts) https://github.com/bouchard/thumbs_up, 
+Devise(Account creation, validation, and authentication) https://github.com/plataformatec/devise, 
+JQuery-Turbolinks(Used for javascript) https://github.com/kossnocorp/jquery.turbolinks
 
 Heroku Add-On:
 SendGrid
