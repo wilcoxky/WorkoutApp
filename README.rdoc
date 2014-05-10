@@ -16,21 +16,21 @@ of certain elements along with the color.
 -JavaScript: I did not use that much javascript in my code, the only time this occurs is when you hide and show comments within
 the workouts-show. There is some hover functions and resizing handled by bootstrap
 
--Gems
+Gems
   Act as Follower(Handle following and followees) https://github.com/tcocca/acts_as_follower
   Thumbs Up(Handle liking workouts) https://github.com/bouchard/thumbs_up
   Devise(Account creation, validation, and authentication) https://github.com/plataformatec/devise
   JQuery-Turbolinks(Used for javascript) https://github.com/kossnocorp/jquery.turbolinks
 
--Heroku Add-On 
+Heroku Add-On 
   SendGrid
   Used SendGrid to send notifications when a workout is commented on
   https://sendgrid.com/docs/Integrate/Frameworks/rubyonrails.html
--Other Add-On
+Other Add-On
   Hunter show me how to add on Facebook likes, which is added to the show method of workouts
   
--DataBase/Resources:
-Users:
+DataBase/Resources:
+-Users:
 -Email: string
 -Username: string
 -Password: string
@@ -52,14 +52,14 @@ Able to create and see but does not have Update or delete
 Other- I also added a home page and about page. The home page will direct you to your dashboard if you are logged in, else
 it takes you to a default home page. 
 
--Validations:
+Validations:
 -In comments there is a check to see if there is anything present
 -User uses Devises in-house to validate 
 -Workouts validates the length of the excercises, and also if the presence in title
 -Also checks to see the current users relation with likes and certain workouts 
 
--JQuery/Scopes:  
-Areas where Queries are used
+JQuery/Scopes:  
+-Areas where Queries are used
 - followers for the dashboard
 - Multiple are used in order to sort the chart (I think 4)
 - Also used to get the comments for each workout in their show method
