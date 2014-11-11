@@ -11,7 +11,13 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140502182020) do
+ActiveRecord::Schema.define(version: 20141028040958) do
+
+  create_table "coaches", force: true do |t|
+    t.string   "name"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
 
   create_table "comments", force: true do |t|
     t.text     "body"
@@ -37,6 +43,15 @@ ActiveRecord::Schema.define(version: 20140502182020) do
   add_index "follows", ["followable_id", "followable_type"], name: "fk_followables"
   add_index "follows", ["follower_id", "follower_type"], name: "fk_follows"
 
+  create_table "teams", force: true do |t|
+    t.string   "name"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.integer  "user_id"
+  end
+
+  add_index "teams", ["user_id"], name: "index_teams_on_user_id"
+
   create_table "users", force: true do |t|
     t.string   "email",                  default: "", null: false
     t.string   "encrypted_password",     default: "", null: false
@@ -52,6 +67,11 @@ ActiveRecord::Schema.define(version: 20140502182020) do
     t.datetime "updated_at"
     t.string   "username"
     t.string   "about"
+    t.string   "Bench"
+    t.string   "Squat"
+    t.string   "Deadlift"
+    t.string   "PowerClean"
+    t.boolean  "coach"
   end
 
   add_index "users", ["email"], name: "index_users_on_email", unique: true
@@ -78,8 +98,10 @@ ActiveRecord::Schema.define(version: 20140502182020) do
     t.string   "category"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.integer  "team_id"
   end
 
+  add_index "workouts", ["team_id"], name: "index_workouts_on_team_id"
   add_index "workouts", ["user_id"], name: "index_workouts_on_user_id"
 
 end

@@ -1,0 +1,58 @@
+<style type="text/css">
+body {
+	color: black;
+}
+.makeWhite > a {
+	color: white;
+}
+
+.well {
+	margin-bottom: 100px !important;
+	margin-left: 20px !important;
+	margin-right: 20px !important;
+}
+h1 {
+	margin-left: 30px;
+	color:white;
+}
+
+.change2Red {
+	color: #A65353;
+}
+
+.editRed {
+	background-color: #A65353;
+}
+.editGreen {
+	background-color: #428542;
+}
+</style>
+
+<h1>Fellow Trainers</h1>
+
+<div class = "well">
+<table class="table">
+ 	<tr>
+ 		<td>Email</td>
+ 		<td>UserName</td>
+ 		<td>Following</td>
+ 	</tr>
+ 	
+ 	<% @teams.each do |team| %>
+ 	<tr>
+ 	<td><%= team.name %></td>
+ 		<td>
+ 	 <% if current_user.following?(team)%>
+ 	 <button type="button" class="btn btn-danger btn-sm makeWhite editRed">
+ 	 <%= link_to "Unfollow", unfollow_team_path(team) %>	 	
+ 	 </button >
+ 	<% else %>
+ 	 <button type="button" class="btn btn-success btn-sm makeWhite editGreen">
+ 	 	<%= link_to "Follow", follow_team_path(team) %>
+ 	 </button>
+ 	 <% end %>
+ 	</td>
+ 	</tr>
+ 	<% end %>
+</table>
+</div>

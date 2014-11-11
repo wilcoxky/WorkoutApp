@@ -1,3 +1,7 @@
+<h1>Team#new</h1>
+<p>Find me in app/views/team/new.html.erb</p>
+
+
 <style type="text/css">
 .border-form-div {
   max-width: 600px;
@@ -73,45 +77,28 @@ textarea {
 </style>
 
 <div class = "border-form-div">
-    <h1>Whats your workout?</h1>
-<!-- End Test -->
-<div class="form-horizontal">
-<%= form_for(@workout) do |f| %>
+<h1>TEAM!</h1>
+<%= form_for(@team) do |f| %>
 <div class ="error-msg">
-  <% if @workout.errors.any? %>
+  <% if @team.errors.any? %>
   <ul>
-    <% @workout.errors.full_messages.each do |msg| %>
+    <% @team.errors.full_messages.each do |msg| %>
     <li><%= msg %></li>
     <% end %>
   </ul>
   <% end %>
 </div>
 
-
     <div class="field">
-        <p>Title</p> 
-        <%= f.text_field :title, hint: 'Title'%>
+        <p>Body: </p> 
+        <%= f.text_area :name%>
     </div>
-    <div class="field">
-    	<p>Catergories</p>
-    	<%= f.select :category, options_for_select(["Upper Body", "Lower Body", "Chest", "Olympic Lift", "Full Body", "Sport-Specific", "Running"])%>
-         <span class="help-inline" style="margin-top: -8px; color:#B1B1B3;" id="help_department">Target Area of Workout</span>
-    </div>
-    <div class="field">
-    	<p>Excercise</p>
-    	<%= f.text_area :excercise, placeholder: "Format: Sets # Reps x per excercise" %>
-    </div>
-
-    <div class="field">
-        <%= f.collection_select :team_id, Team.all,:id,:name%>
-    </div>
-
     <div class="field">
         <%= f.hidden_field :user_id, :value => current_user.id%>
     </div>
-    <div class="">
+    <div class="actions">
         <%= f.submit %>
     </div>
 <% end %>
-</div>
+
 </div>

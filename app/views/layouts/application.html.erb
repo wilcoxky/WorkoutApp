@@ -60,7 +60,11 @@ body > a{
             <li><%= link_to "About", misc_about_path %></li>
             <li><%=link_to "Workouts", workouts_path %></li>
             <li><%= link_to "Users", users_path %></li>
+            <li><%= link_to "Teams", teams_path %></li>
+            <% if current_user.try(:coach?)%>
             <li><button type="button" class="btn btn-default kyleEdit"><%=link_to "Add Your Own!", new_workout_path, class: "changeMe" %></button></li>
+            <li><button type="button" class="btn btn-default kyleEdit"><%=link_to "Create a team", new_team_path, class: "changeMe" %></button></li>
+            <% end %>
           </ul>
 
           <!-- Sign in and Sign Out buttons -->
@@ -71,9 +75,9 @@ body > a{
               <li><%= link_to("Logout", destroy_user_session_path, :method => :delete, class: "login") %></li>
             </button >
            <% else %>
-           <button type="button" class="btn btn-warning btn-sm right-btn ">
-              <li><%= link_to("Sign Up", new_user_registration_path) %></li>
-            </button>
+            <button type="button" class="btn btn-warning btn-sm right-btn ">
+               <li><%= link_to("Sign Up", new_user_registration_path) %></li>
+             </button>
             <button type="button" class="btn btn-default btn-sm right-btn ">
               <li><%= link_to("Login", new_user_session_path, class: "login" )%></li>
             </button>

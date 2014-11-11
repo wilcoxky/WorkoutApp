@@ -49,7 +49,7 @@ textarea {
     <%= f.text_area :Squat, autofocus: true, placeholder: "Tell us about yourself, i.e. Sport you play, crossfit, etc ..." %>
     <%= f.text_area :PowerClean, autofocus: true, placeholder: "Tell us about yourself, i.e. Sport you play, crossfit, etc ..." %>
     <%= f.text_area :Deadlift, autofocus: true, placeholder: "Tell us about yourself, i.e. Sport you play, crossfit, etc ..." %>
-    <%= f.check_box :coach %>
+    <%= f.hidden_field :coach, :value => true %>
     <%= f.password_field :password %> <span class="help-inline" style="margin-left:1px; color:#A2A2A3">Password</span>
     <%= f.password_field :password_confirmation, autocomplete: "off" %><span class="help-inline" style="margin-left:5px; color:#A2A2A3">Confirm</span>
     <%= devise_error_messages! %>

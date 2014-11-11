@@ -34,11 +34,11 @@ class WorkoutsController < ApplicationController
   end
 
   def workout_params
-  	params.require(:workout).permit(:title, :category, :excercise, :user_id)
+  	params.require(:workout).permit(:title, :category, :excercise, :user_id, :team_id)
   end
 
   def new
-    if user_signed_in?
+    if user_signed_in? 
   	 @workout = Workout.new
     else
       redirect_to new_user_session_path

@@ -1,4 +1,5 @@
 WorkoutApp::Application.routes.draw do
+
   get "misc/about"
   get "misc/home"
   resources :comments
@@ -9,12 +10,21 @@ WorkoutApp::Application.routes.draw do
       post :unvote
     end
   end
+  
   devise_for :users
+
   resources :users do
     member do
       get :follow
       get :unfollow
       get :vote_for
+    end
+  end
+
+  resources :teams do
+    member do
+      get :follow
+      get :unfollow
     end
   end
   get "dashboard", to: "users#dash"

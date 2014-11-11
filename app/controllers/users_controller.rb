@@ -21,13 +21,13 @@ class UsersController < ApplicationController
   end
 
   def dash
-    @following = current_user.following_users
+    @following = current_user.following_teams
     @fid = []
     @workouts = []
     @following.each do |f|
       @fid.push(f.id)
     end
-    @workouts = Workout.where(user_id: @fid).order(created_at: :desc)
+    @workouts = Workout.where(team_id: @fid).order(created_at: :desc)
   end
 
   def follow
