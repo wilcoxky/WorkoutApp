@@ -1,4 +1,24 @@
 Kyle Wilcox
+Dan make sure you read over the README to get an idea of what is going on.
+
+Updates made to athways:
+Model changes:
+-User now has a new model element that states whether is coach or not:
+-Coach(admin) has privledges to: create workout and team
+-Normal user, follows teams in order to receive workouts
+New Model:
+  -Team
+    - Created by a user
+    - Workouts associated with teams now
+    - *Need to add feature such as description or location to help discriminate
+Still need to be implemented:
+Views:
+  Workout creation: Change teams so coach can only select teams associated with him
+  Workout Show: Needs to be stylized
+  User_dash: Again update to be more than just a table
+  Teams_index: Simple works for now
+  
+
 
 FINAL PROJECT
 
